@@ -1,0 +1,3 @@
+name: Marco Sabatini, Sotware crafter
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
