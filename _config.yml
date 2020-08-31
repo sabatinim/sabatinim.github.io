@@ -1,3 +1,4 @@
 name: Marco Sabatini, Software crafter
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+theme: jekyll-theme-architect

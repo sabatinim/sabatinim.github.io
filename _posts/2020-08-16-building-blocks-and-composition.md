@@ -16,14 +16,14 @@ This Kata is very simple but it forces us to think about the domain of the appli
 ### Test first
 The first thing I did was to deal with the problem of renting a video by writing a series of tests relating to the calculation of the price of the single type of movie, such as:
 
-{% highlight typescript %} 
+``` typescript
 it('rent new Release Movie for one day', () => {
         expect(moviePriceFor(new Rental(1, newReleaseConfiguration("UNUSED")))).toEqual(3.0)
 });
 it('rent Children Movie for four day', () => {
         expect(moviePriceFor(new Rental(4, childrenConfiguration("UNUSED")))).toEqual(3.0)
 });
-{% endhighlight typescript %} 
+```
 
 Writing these tests emerged the concepts of **Rent**, **type of Movie**, **additional price calculation for each extra day** and **single movie price calculation**. 
 
