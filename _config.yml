@@ -1,4 +1,5 @@
-name: Marco Sabatini, Software crafter
-markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
+title: Marco Sabatini's blog
+description: Software crafter.
+show_downloads: true
+google_analytics:
 theme: jekyll-theme-architect
