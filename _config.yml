@@ -3,3 +3,4 @@ description: Software crafter.
 show_downloads: false
 google_analytics:
 theme: jekyll-theme-slate
+permalink: /blog/:year/:month/:day/:title
