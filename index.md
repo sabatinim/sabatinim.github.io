@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: Marco Sabatini, Software Crafter
 ---
 
@@ -13,7 +13,7 @@ This is my chance to share something with you!
 <div>
     <ul>
         {% for post in site.posts %}
-        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}" title="{{ post.title }}">{{
+        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}" title="{{ post.title }}" target="_blank">{{
             post.title }}</a></li>
         {% endfor %}
     </ul>
