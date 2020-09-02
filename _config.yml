@@ -1,6 +1,8 @@
 title: Marco Sabatini's blog
 description: Software crafter.
 show_downloads: false
+github:
+  is_project_page: false
 google_analytics:
 theme: jekyll-theme-slate
 permalink: /blog/:year/:month/:day/:title

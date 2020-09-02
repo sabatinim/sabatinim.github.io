@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: custom
 title: Marco Sabatini, Software Crafter
 ---
 

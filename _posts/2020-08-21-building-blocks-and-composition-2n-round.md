@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: custom
 title: "Building blocks and composition a 2nd round"
 date: 2020-08-21
 ---
