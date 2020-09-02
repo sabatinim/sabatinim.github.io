@@ -13,7 +13,7 @@ This is my chance to share something with you!
 <div>
     <ul>
         {% for post in site.posts %}
-        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}" title="{{ post.title }}" target="_blank">{{
+        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}" title="{{ post.title }}">{{
             post.title }}</a></li>
         {% endfor %}
     </ul>
