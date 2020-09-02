@@ -6,3 +6,6 @@ github:
 google_analytics:
 theme: jekyll-theme-architect
 permalink: /blog/:year/:month/:day/:title
+twitter:
+  isEnabled: true
+  url: https://twitter.com/marc_sab
