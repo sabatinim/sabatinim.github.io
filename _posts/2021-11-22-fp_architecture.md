@@ -6,7 +6,7 @@ date: 2021-11-22
 I've been coding the [birthday greeting](http://matteo.vaccari.name/blog/archives/154.html) in kotlin. This exercise is very useful if you want to learn more about architect your code separating domain from infrastructure code.
 I also had the purpose of making some practice with functional programming, in particular I wanted to use some functional data structure like monads.
 
-##Start
+## Start
 I started with some doubts: what kind of monad do I have to use? IO monad? Either monad? Both?
 I can't find a response. I wanted something that made my code easily readable; I decided to use Either monad because my aim was to make the method signatures explicit.
 
@@ -25,7 +25,7 @@ Either.Left(ErrorType("This is the Error!"))
 ```
 It helps to manage cases like a service that may result in a connection issue, or any unexpected JSON response.
 
-##Kata
+## Kata
 Basically, my software will be a composition of functions.
 The exercise asks for a software that is able to find employees whose birthday is today and send them emails.
 I need to load employees from a data source (a file for this exercise), filter them, and send email.
@@ -66,7 +66,7 @@ sealed class MyError {
 ```
 Moreover in this situation the code is quite obvious and we don't need any comment to understand what is the purpose.
 
-##Testing
+## Testing
 It's very curious to see how easily is testing after separating infrastructure from the domain.
 For example: in this acceptance test I could inject the 'load employee logic' using in memory implementation and running the test without having additional configurational stuff for the infrastructure part.
 
@@ -103,7 +103,7 @@ For example: in this acceptance test I could inject the 'load employee logic' us
 ```
 Just inject the in memory behaviour and execute the test (voila').
 
-###Do I need to test infrastructure?
+### Do I need to test infrastructure?
 Yes of course!
 After separating domain logic from the infrastructure logic, It's very easy testing infrastructure code in isolated mode using an integration test like these:
 
@@ -137,7 +137,7 @@ After separating domain logic from the infrastructure logic, It's very easy test
 Imagine that we have to load data from database. We just could write the jdbc implementation of loadEmployees and we could use a docker container for making integration test and voila' ([see on my post](https://dev.to/maverick198/tests-infrastructure-1gko)).
 In this way all these integration tests will become a tests container or if we have to integrate with external services (like API) we could write just contract tests.
 
-##End
+## End
 From a design point of view I have a use case responsible to orchestrate the flow.
 We can see three main responsibilities:
 - Load data
@@ -158,13 +158,13 @@ Regarding functional programming, we can say 'Either' monad make my code more re
 I would think about monads like a meta-language on top of our programming language, able to create something understandable for developers (a sort of dev ubiquitous language).
 If we had developed the exercise using 'Either' monad with another language probably we'll have the same result.
 
-###References
+### References
 - [Exercise code](https://github.com/sabatinim/birthday-greetings)
 - [Arrow](https://arrow-kt.io/)
 - [Accelerate Development with Simple Design - Matteo Vaccari](https://www.youtube.com/watch?v=5-HWNVoFLX8)
 - [Reinventing the Transaction Script - Scott Wlaschin](https://www.youtube.com/watch?v=USSkidmaS6w)
 
-####P.S.
+#### P.S.
 This is an exercise. I could resolve it in a lot of different ways.
 Don't focus on technical stuff but on design and testing!
 

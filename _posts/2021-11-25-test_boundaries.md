@@ -3,7 +3,7 @@ layout: custom
 title: "Test Boundaries"
 date: 2021-11-25
 ---
-##Overview
+## Overview
 Separating infrastructure from domain permit to identify the boundaries of our system like the *"part of software"* responsible to communicate with *"external world"* (DBMS, external API, web). We'll analyze testcontainers technique to build a test suite for our system boundaries.
 Starting from [test containers](https://www.testcontainers.org/) docs we know that it makes the following kinds of tests easier:
 
@@ -15,7 +15,7 @@ Starting from [test containers](https://www.testcontainers.org/) docs we know th
 
 Well! we're going to try it on a pet code. We'll not use testcontainers framework, just docker with some script to configure it. Let's start!
 
-##Kata
+## Kata
 Regarding [my previous post](https://dev.to/maverick198/fp-architecture-2o5i), we want to write the DB access layer for this function:
 
 ``` kotlin
@@ -115,7 +115,7 @@ For DB access layer I will have (tadaaa!):
 This technique is called [contract test](https://blog.thecodewhisperer.com/permalink/getting-started-with-contract-tests) and is very useful when we have to define a specific behaviour in our codebase and we have different implementation of it.
 In this case I have defined loadEmployees behaviour between my domain code and my infrastructure code and I have different implementations tested. It's very useful if we want to have in memory implementation of external 'port' and use them in our acceptance test (super fast!!!).
 
-##Docker && Docker Compose
+## Docker && Docker Compose
 Now it's time to move to infrastructure part. I need a DBMS mysql instance and a jvm maven runtime where my kotlin test code can run. These containers have to communicate each other.
 This is the docker compose file configuration I used:
 
@@ -189,7 +189,7 @@ docker-compose down --remove-orphans
 ```
 You can build the project directly executing it on your computer or we can use it to create a CI pipeline.
 
-##Setting CI pipeline
+## Setting CI pipeline
 I have all the pieces to build my CI on github using GH actions.
 Under *.github/* folder I have this configuration:
 
@@ -236,12 +236,12 @@ BirthDay: DateOfBirth(day=5, month=3, year=1983)
 ```
 Keep in mind that I could add validation, performance or quality gate steps (wooow!)
 
-##Considerations
+## Considerations
 Having infrastructure under the project codebase helps to understand the overall ecosystem and cut the distance between dev and operation. In this situation I could deploy my container on every container cloud service (ex. ECS on AWS) and be quite sure the behaviour is the same I'm seeing during CI or testing demo.
 Of course from an organisational point of view this also means having people that are able to develop code, choose and create the necessary infrastructure.
 As developers we have not think about be only code IDE "users" or system engineer!
 
-###References
+### References
 - [Exercise Github repository](https://github.com/sabatinim/test-containers)
 - [Testcontainers](https://www.testcontainers.org/)
 - [Getting Started with Contract Tests](https://blog.thecodewhisperer.com/permalink/getting-started-with-contract-tests)
