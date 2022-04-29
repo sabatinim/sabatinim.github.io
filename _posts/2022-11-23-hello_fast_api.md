@@ -12,12 +12,12 @@ date: 2022-11-23
 * [Considerations](#6)
 * [References](#7)
 
-##Overview <a name="1">
+## Overview <a name="1">
 For the series "**startup project with...**" I'm going to approach python web development and I've tried to use [FastAPI web framework](https://fastapi.tiangolo.com/). I was very surprised by it's easy of use and I wanted to go in deeper about it; above all it's testing features.
 
-##Pet project <a name="2">
+## Pet project <a name="2">
 In order to test functionality I implemented this [pet project](https://github.com/sabatinim/fast_api_hello_world). Basically it is a simple server with one rest api.
-###Local Run <a name="3">
+### Local Run <a name="3">
 After checkout the code you can simply execute "script/ci" on your terminal application. The script will execute these steps:
 - build python app in docker container
 - code checks (like unused code)
@@ -32,7 +32,7 @@ The second one should provide this response:
 ```bash
 {"item_id":123,"q":"test","use_case":"Production Code"}
 ```
-##Scope <a name="4">
+## Scope <a name="4">
 Regarding the code design I just wanted to achieve two points:
 1. encapsulate controller api on a class
 2. inject collaborator in order to easily test API
@@ -67,7 +67,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./app /code/app
 CMD ["uvicorn", "app.main:startup", "--host", "0.0.0.0", "--port", "8080", "--workers", "4"]
 ```
-##Testing <a name="5">
+## Testing <a name="5">
 Off course I can also use startup() method for injecting dependencies in order to easily test the application.
 These are two tests for the controller:
 
@@ -103,9 +103,9 @@ For this reason we could inject a TestableCollaborator like in the second test (
 ```python
 client = TestClient(startup(TestableUseCase()))
 ```
-##Considerations <a name="6">
+## Considerations <a name="6">
 From design point of view FastAPI is super useful framework to use to build our microservices. Fits very well with container logic and cloud development. It's also very easy to build a test suite for the application we're going to develop.
 Of course you have to pay attention to not introduce complexity with some feature it provides like dependencies or DBMS access.
 
-####References <a name="7">
+#### References <a name="7">
 [Github project link](https://github.com/sabatinim/fast_api_hello_world)
