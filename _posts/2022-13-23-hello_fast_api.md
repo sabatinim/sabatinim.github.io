@@ -1,6 +1,6 @@
 ---
 layout: custom
-title: "Startup project with FastAPI"
+title: "Hello Fast api"
 date: 2022-11-23
 ---
 # Table of contents
