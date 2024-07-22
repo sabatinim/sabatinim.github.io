@@ -3,26 +3,42 @@ layout: custom
 title: "Test Boundaries"
 date: 2021-11-25
 ---
+
 ## Overview
-Separating infrastructure from domain permit to identify the boundaries of our system like the *"part of software"* responsible to communicate with *"external world"* (DBMS, external API, web). We'll analyze testcontainers technique to build a test suite for our system boundaries.
-Starting from [test containers](https://www.testcontainers.org/) docs we know that it makes the following kinds of tests easier:
+Separating the infrastructure from the domain is a smart move to define clear system boundaries, especially when dealing
+with components responsible for interacting with the external world, such as databases, external APIs, or web services.
+In this exploration, we'll delve into the TestContainers technique for constructing a robust test suite that aligns with
+these system boundaries.
 
-- **Data access layer integration tests:** use a containerized instance of a MySQL, PostgreSQL or Oracle database to test your data access layer code for complete compatibility, but without requiring complex setup on developers' machines and safe in the knowledge that your tests will always start with a known DB state. Any other database type that can be containerized can also be used.
+According to the [TestContainers](https://www.testcontainers.org/) documentation, this tool simplifies various types of
+tests, making them more manageable:
 
-- **Application integration tests:** for running your application in a short-lived test mode with dependencies, such as databases, message queues or web servers.
+Data access layer integration tests: TestContainers allows us to use a containerized instance of databases like MySQL,
+PostgreSQL, or any other DBMS. This makes it easy to test data access layer code, ensuring compatibility without the
+need for intricate setups on developers' machines. The assurance that tests always begin with a known database state is
+a significant benefit. Additionally, any containerizable database type can be utilized.
 
-- **UI/Acceptance tests:** use containerized web browsers, compatible with Selenium, for conducting automated UI tests. Each test can get a fresh instance of the browser, with no browser state, plugin variations or automated browser upgrades to worry about. And you get a video recording of each test session, or just each session where tests failed.
+Application integration tests: This involves running your application in a transient test mode with dependencies such as
+databases, message queues, or web servers. TestContainers facilitates this process, making it efficient and reliable.
 
-Well! we're going to try it on a pet code. We'll not use testcontainers framework, just docker with some script to configure it. Let's start!
+UI/Acceptance tests: For automated UI tests, TestContainers provides containerized web browsers compatible with
+Selenium. Each test can spawn a fresh browser instance, eliminating concerns about browser state, plugin variations, or
+automated browser upgrades. Moreover, TestContainers records video sessions for each test, aiding in debugging and
+analysis.
+
+Now, our approach will be a bit different. Instead of using the TestContainers framework directly, we'll leverage Docker
+along with some bash scripts for configuration. Let's dive into this pet code adventure!
 
 ## Kata
-Regarding [my previous post](https://dev.to/maverick198/fp-architecture-2o5i), we want to write the DB access layer for this function:
+Regarding [my previous post](https://dev.to/maverick198/fp-architecture-2o5i), we want to write the DB access layer for
+this function:
 
 ``` kotlin
 loadEmployees: () -> Either<Error, Employees>
 ```
-I also want to use docker infrastructure for testing it.
-I remember that I have some integration tests for FileLoadEmployee function:
+
+And hey, why not use Docker for testing the infrastructure? I've got these integration tests hanging around for the
+FileLoadEmployee function:
 
 ``` kotlin
 @Test
@@ -31,8 +47,10 @@ internal fun loadSomeEmployees()
 @Test
 internal fun employeeNotValidEmail()
 ```
-They are quite clear so we can avoid to describe them.
-I'd like to use them for the DB implementation but I don't want to duplicate test code. I'm going to create an abstraction of these tests that could be used for both implementations (File and DB).
+
+No need to go into the nitty-gritty details of those tests—they're pretty straightforward.
+Here's the plan: I want to repurpose them for the DB implementation, but let's not go down the road of duplicating code.
+My trick? Creating an abstraction for these tests that can serve both the File and DB implementations.
 
 ``` kotlin
 abstract class LoadEmployeeTest {
@@ -66,9 +84,12 @@ abstract class LoadEmployeeTest {
     abstract fun wrongInstance(): () -> Either<Error, Employees>
 }
 ```
-Basically I'll have two abstract methods to implement. These methods must return the relative function implementation (File or DB) for happy path and corner cases.
 
-For File access layer I will have (tadaaa!):
+So, here's the deal: I'll whip up two abstract methods—instance() and wrongInstance(). These are the brainiacs
+responsible for conjuring up the function instances that handle loading employees. They'll serve up the goods for both
+the happy path and those pesky corner cases.
+
+Now, for the File access layer:
 
 ``` kotlin
 override fun instance(): () -> Either<Error, Employees> =
@@ -86,7 +107,8 @@ override fun instance(): () -> Either<Error, Employees> =
             .isEqualTo(Either.Left(Error("File NOT_EXIXSTING_FILE doesn't exist")))
     }
 ```
-For DB access layer I will have (tadaaa!):
+
+For DB access layer:
 
 ``` kotlin
   @AfterEach
@@ -112,12 +134,21 @@ For DB access layer I will have (tadaaa!):
         stmt.close()
     }
 ```
-This technique is called [contract test](https://blog.thecodewhisperer.com/permalink/getting-started-with-contract-tests) and is very useful when we have to define a specific behaviour in our codebase and we have different implementation of it.
-In this case I have defined loadEmployees behaviour between my domain code and my infrastructure code and I have different implementations tested. It's very useful if we want to have in memory implementation of external 'port' and use them in our acceptance test (super fast!!!).
+
+You know, this trick I'm pulling off is called
+a [contract test](https://blog.thecodewhisperer.com/permalink/getting-started-with-contract-tests). It's like our secret
+sauce when we need to lay down the law for specific behavior in our code. Especially handy when we've got different
+implementations floating around.
+
+So, what's cooking here? I'm defining the loadEmployees behavior between my domain code and the infrastructure code.
+It's like setting the rules of engagement. And the cool part? I'm testing different implementations to make sure they
+play nice. It's the go-to move if you want to throw in an in-memory implementation of an external 'port' and speed up
+those acceptance tests. Quick and snappy!
 
 ## Docker && Docker Compose
-Now it's time to move to infrastructure part. I need a DBMS mysql instance and a jvm maven runtime where my kotlin test code can run. These containers have to communicate each other.
-This is the docker compose file configuration I used:
+Now it's time to move to the infrastructure part. I need a DBMS MySQL instance and a JVM maven runtime where my Kotlin
+test code can run. These containers have to communicate with each other.
+This is the docker-compose file configuration that I used:
 
 ``` yaml
 services:
@@ -153,9 +184,13 @@ services:
 networks:
   db-network:
 ```
-- **mysql**: DBMS
-- **db_client**: is a mysql client command line interface. It is responsible to create schema and could be used also for other purposes (ex. load demo test data etc.).
-  It is using an entrypoint docker to create schema or load demo data and this [plugin](https://github.com/kassambara/docker-compose-wait-for-container) that helps waiting for mysql instance is started.
+
+- **MySQL**: DBMS
+- **db_client**: is a MySQL client command line interface. It is responsible for creating schema and could be used also
+  for other purposes (ex. load demo test data etc.).
+  It uses an entrypoint docker to create a schema or load demo data and
+  this [plugin](https://github.com/kassambara/docker-compose-wait-for-container) helps to wait for MySQL instance to be
+  started.
 
 ``` bash
 case "$@" in
@@ -173,10 +208,12 @@ case "$@" in
 esac
 ```
 
-[Here](https://github.com/sabatinim/test-containers/tree/master/containers/client) you can see docker container configuration details.
-- **maven**: is the container where my kotlin test code is executes.
+[Here](https://github.com/sabatinim/test-containers/tree/master/containers/client) you can see docker container
+configuration details.
 
-All the CI pipeline is orchestrate from this bash script:
+- **maven**: is the container where my Kotlin test code is executed.
+
+All the CI pipeline is orchestrated from this bash script:
 
 ``` bash
 #!/bin/bash
@@ -187,6 +224,7 @@ docker-compose run maven mvn --quiet -f /tmp clean install
 docker-compose run maven mvn -f /tmp surefire-report:report -DshowSuccess=false
 docker-compose down --remove-orphans
 ```
+
 You can build the project directly executing it on your computer or we can use it to create a CI pipeline.
 
 ## Setting CI pipeline
@@ -206,8 +244,10 @@ jobs:
       - name: DEMO
         run: script/demo
 ```
-This means: on pushing, start a build that execute the ci and demo script.
-Under [tab actions](https://github.com/sabatinim/test-containers/actions) I can see all the build with the output:
+
+So, here's the lowdown: when we hit that push button, it kicks off a build that runs the CI and demo scripts. Just a
+smooth ride through the [GitHub Actions tab](https://github.com/sabatinim/test-containers/actions), where you can catch
+all the action and check out the build outputs.
 
 ``` bash
 [INFO] 
@@ -224,6 +264,7 @@ Under [tab actions](https://github.com/sabatinim/test-containers/actions) I can 
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
 containers ---
 ```
+
 Demo output:
 
 ``` bash
@@ -234,15 +275,22 @@ Email: EmailAddress(value=address@email.com)
 BirthDay: DateOfBirth(day=5, month=3, year=1983)
 ....
 ```
-Keep in mind that I could add validation, performance or quality gate steps (wooow!)
+
+Keep in mind that I could add validation, performance, or quality gate steps.
 
 ## Considerations
-Having infrastructure under the project codebase helps to understand the overall ecosystem and cut the distance between dev and operation. In this situation I could deploy my container on every container cloud service (ex. ECS on AWS) and be quite sure the behaviour is the same I'm seeing during CI or testing demo.
-Of course from an organisational point of view this also means having people that are able to develop code, choose and create the necessary infrastructure.
-As developers we have not think about be only code IDE "users" or system engineer!
+Having the infrastructure right there in the project codebase? It's like having a backstage pass to the entire
+ecosystem. No more long-distance vibes between dev and ops. Now, in my world, I can toss my container onto any cloud
+service—ECS on AWS, anyone? And the best part? I'm pretty darn confident the behavior will be just as groovy as what I
+see during CI or testing demos.
+
+Now, here's the real talk from an organizational angle. Sure, having the infrastructure mingling with the code means
+having folks who can sling code, pick the right tools, and craft the necessary infrastructure magic. We're not just code
+jockeys; we're like the wizards who know their way around systems.
 
 ### References
+
+- [Originally Posted on](https://sabatinim.github.io/blog/2021/11/25/test_boundaries)
 - [Exercise Github repository](https://github.com/sabatinim/test-containers)
 - [Testcontainers](https://www.testcontainers.org/)
 - [Getting Started with Contract Tests](https://blog.thecodewhisperer.com/permalink/getting-started-with-contract-tests)
-

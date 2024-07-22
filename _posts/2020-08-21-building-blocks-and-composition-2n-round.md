@@ -3,14 +3,14 @@ layout: custom
 title: "Building blocks and composition a 2nd round"
 date: 2020-08-21
 ---
+In my [previous post](https://sabatinim.github.io/blog/2020/08/16/building-blocks-and-composition), I talked about functional programming's fundamental building blocks and introduced the Open-Closed Principle (OCP). Today, I want to explore software modularization and how we can implement the OCP using functional programming techniques.
 
-Hi guys, again here after my previous [post](https://sabatinim.github.io/blog/2020/08/16/building-blocks-and-composition). 
-I want to add some hints regarding software modularisation. The example is always our video store kata. 
-I'd like to share with you how in functional style manage the OCP principle. 
-The OCP definition say: **software should be open for extension, but closed for modification.**
-This is very simple to understand but very hard to achieve and for me it's the base for the team agility (resiliency to changes).
-Coming back to our example we have to print the receipt in plaint text but we also have the secret requirement to print it also in HTML. In order to do this change, we don't want to change our code but we want to extend it in perfect OCP style :)
-I'm going to show you the receipt module:
+The Open-Closed Principle (OCP) may sound simple, but it can be challenging to implement effectively: "Software should be open for extension but closed for modification." Achieving this principle is crucial for maintaining agility and adaptability in your development process.
+
+Let's revisit the context of our Video Store Kata. We've already implemented the ability to print receipts in plain text. However, a new requirement has arisen: we need to print receipts in HTML format without altering our existing codebase. This is where the Open-Closed Principle comes into play.
+
+To fulfill this requirement, we'll start by examining our receipt module:
+
 
 ``` typescript
 class PrintableMovie {
@@ -30,14 +30,14 @@ const printableMovieWith =
 export const printableMovie: (r: Rental) => PrintableMovie =
     printableMovieWith(calculateMoviePrice);
 ```
-This module is quite generic. 
-I implemented a **PrintableMovie** data type in order to represent something that should be printed. 
-I also implemented two function, the **printableMovieWith** is a function that wants the price calculation function as currying and **printableMovie** that is responsible to transform a Rental into a PrintableMovie. 
-This is the contact point between pricing module and receipt module.
+This module is designed to be generic. It defines a PrintableMovie data type for items that need to be printed. It also includes two functions:
 
-Is very useful to have this decoupling because we could test pricing and receipt like they're two black box (for example inject a price function as stub and testing only the templating).
+1) **printableMovie** transforms a Rental into a **PrintableMovie**.
+2) **printableMovieWith** takes a price calculation function as input and prints the price with a precision of two digits.
 
-At this point we have to generalise the print receipt function like:
+This serves as a contract between the pricing module and the receipt module. Defining this contract using functions allows us to test pricing and receipt modules as separate black boxes.
+
+With this foundation, we can now generalize the print receipt function:
 
 ``` typescript
 export const genericReceipt =
@@ -52,11 +52,9 @@ export const genericReceipt =
             footer(rentals) + "\n" +
             rentalPoint(rentals)
 ```
-Ok we can notice some duplication like **(rentals: Rental[]) => string** but we could accept it now :)
+Now, we can implement both the plain text and HTML templates.
 
-Now we're able to implement the plain text template and the html one. Let's go and show me the code. 
-
-For plain text we have: 
+For plain text:
 
 ``` typescript
 const textMovieReceipt = (m: PrintableMovie): string =>
@@ -96,7 +94,7 @@ export const printTextReceipt: (user: string, rentals: Rental[]) => string =
         textFooterReceipt,
         textFooterRentalPointReceipt)
 ```
-Instead for HTML we have:
+And for HTML:
 
 ``` typescript
 const htmlMovieReceipt = (m: PrintableMovie): string =>
@@ -143,17 +141,12 @@ export const printHtmlReceipt: (user: string, rentals: Rental[]) => string =
         htmlFooterReceipt,
         htmlFooterRentalPointReceipt)
 ```
+The code structure remains consistent for both templates. We've successfully achieved the Open-Closed Principle – our code is open for extension (to add new templating formats) but closed for modification, which ensures robustness.
 
-Ok the code is more or less the same. The only things I had to do were implement the different templating functions and wire them using the **genericReceipt** function. 
-This means that my code is OPEN for extension and CLOSE for modification.
+A key takeaway is the importance of an emerging design. My initial version was different from the current one, and I had to refactor my code before implementing the new HTML receipt feature. Continuous refactoring is essential for maintaining a resilient architecture.
 
-This brings a lots of benefits because is very easy inject new behaviours (different templating format). 
-
-The fundamental thing to understand is this: we have to make sure that our design is **emerging.**
-My first version was very different from the actual design. I had to refactor my code before I had to implement the new feature (HTML receipt). 
-This is why **continuous refactoring** practice is very important for our architecture.
+Originally published at https://sabatinim.github.io/
 
 ## References
-[Github code](https://www.github.com/sabatinim/video-store-kata/tree/master/typescript) 
+[Github code](https://www.github.com/sabatinim/video-store-kata/tree/master/typescript)
 [Scott Wlashin the power of composition](https://www.slideshare.net/mobile/ScottWlaschin/the-power-of-composition) 
-

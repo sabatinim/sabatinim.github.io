@@ -3,21 +3,26 @@ layout: custom
 title: "Building blocks and composition a first taste of functional programming"
 date: 2020-08-16
 ---
+
 ## Overview
 
-> Functional programming is very cool! But how can I start to practice?
+Functional programming is fascinating, but how can you start practicing it? If you're a developer who has been pondering
+this question, I'd like to share my personal journey and experiences.
 
-if you are a developer who has wondered about this, I'd like to share my personal experience.
+I firmly believe in the "learning by doing" approach. That's why I decided to use a coding exercise known as a kata to
+practice functional programming. Specifically, I chose the Martin Fowler kata for the video store, not the refactoring
+version but the one starting from scratch. This approach provided me with a clean slate to work with, enabling me to
+focus on the application's domain rather than getting bogged down in technical details. I opted for TypeScript to
+leverage the functional capabilities offered by the language.
 
-I strongly believe in learning by doing. For this reason I decided to use a kata (little coding exercise) to practice.
-
-I choose the Martin Fowler kata video store. Not the refactoring version but the one from scratch. In this way I had the opportunity to have a blank sheet to start with and think about.
-
-This Kata is very simple. I want to have focus on application's domain rather than technical details such as, for example, the use of a DB for persistence or integration with an external service via HTTP.
-The purpose of the kata is creating a system able to rent different types of Movies and print the receipt in different formats (plain text and HTML).
+The chosen kata is rather straightforward. My aim was to concentrate on the application's domain logic rather than
+dealing with technical intricacies like database persistence or external HTTP service integration. The primary objective
+of this kata was to create a system capable of renting different types of movies and generating receipts in various
+formats, such as plain text and HTML.
 
 ### Test first
-I started writing a test suite about a specific movie type price calculation:
+
+My journey began by writing a test suite to calculate the price for specific movie types:
 
 ``` typescript
 it('rent new Release Movie for one day', () => {
@@ -27,13 +32,11 @@ it('rent Children Movie for four day', () => {
         expect(moviePriceFor(new Rental(4, childrenConfiguration("UNUSED")))).toEqual(3.0)
 });
 ```
-Writing these tests emerged the concepts of:
-- **Rent**
-- **Movie type**
-- **additional price calculation for each extra day**
-- **single movie price calculation**
 
-This is the production code able to makes these tests green:
+While writing these tests, I discovered key concepts like rental, movie types, additional price calculations for extra
+days, and individual movie price calculations.
+
+I implemented the following production code to pass these tests:
 
 ``` typescript
 const additionalCostFor = (rental: Rental): MoviePrices => {
@@ -49,16 +52,19 @@ const priceFor = (moviePrices: MoviePrices): number => {
     return (moviePrices.movieBasePrice + moviePrices.additionalCost).toPrecision(5) 
 };
 ```
-The first function calculates the additional price and the second adds the price and scale to five decimal places.
 
-We can notice that I have the **'building block'** I can compose
-to have a function that calculate the fully price for a single movie type (tadaaa!!!).
+The first function calculates the additional cost, while the second function adds the base price and rounds it to five
+decimal places.
+
+At this point, I realized that I had the essential building blocks needed to compose a function that calculates the
+total price for a single movie type.
 
 >
 Let's go and apply composition!
 
 ### Composition
-At this point I decided to implement the compose function. Obviously we have to write a test before:
+
+Next, I decided to implement a compose function, but of course, I wrote a test first:
 
 ``` typescript
 it('compose two function', () => {
@@ -71,10 +77,11 @@ it('compose two function', () => {
   expect(gfx("value")).toEqual("g(f(value))")
 });
 ```
-Inside the test I define two functions 'f' and 'g' that take an input parameter and return a string with this parameter interpolated.
-Composing them I can get a string concatenation.
 
-This is the production code:
+In this test, I defined two functions, 'f' and 'g', which take an input parameter and return a string with that
+parameter interpolated. By composing them, I achieved string concatenation.
+
+The production code for the compose function looks like this:
 
 ``` typescript
 export const compose = <A,B,C>(
@@ -85,9 +92,11 @@ export const compose = <A,B,C>(
     return (x) => g(f(x))
 };
 ```
-Using typescript generics I can use it indiscriminately for each pair of functions whose output type of one is the input for the other.
 
-This is the resulting function:
+Using TypeScript generics, I created a versatile compose function that can be used for any pair of functions where the
+output type of one matches the input type of the other.
+
+With this compose function in place, I was able to compose the additionalCostFor and priceFor functions like so:
 
 ``` typescript
 const additionalCostFor = (rental: Rental): MoviePrices => {...}
@@ -96,17 +105,20 @@ const priceFor = (moviePrices: MoviePrices): number => {...}
 
 const moviePriceFor: (x: Rental) => number = compose(additionalCostFor, priceFor)
 ```
-The type system is telling me I have a function that takes a Rental and gives back a number that represent price per movie (Maybe I should also have typed the outgoing concept and not leave the primitive obsession :) ).
 
-We can notice that I didn't even have to write a test before bringing out this design because it came out independently and it is the compiler that tells me that the two functions compose (WOOOOW!).
+Thanks to the type system, I didn't even need to write a test for this specific composition because it naturally
+emerged, and the compiler confirmed that the functions could be composed successfully.
 
 >
 Try to compose again!
 
-## Curry
-By creating basic functions (building blocks) it is possible to compose them by creating more complex functions in an automatic and natural way, this pushes to have a code in which the responsibilities are very clear and isolated and makes for an excellent degree of cohesion and coupling.
+## Leveraging Curry
 
-In fact, for the total price calculation I just had to reuse the calculation of the single Movie after having inject it by the curry and apply it with map reduce.
+By creating these basic building blocks, I could easily compose them to create more complex functions. This approach
+encourages clear and isolated responsibilities, leading to excellent cohesion and loose coupling.
+
+For the total price calculation, I reused the calculation for individual movies by currying the function and applying it
+using map and reduce:
 
 ``` typescript
 const additionalCostFor = (rental: Rental): MoviePrices => {...}
@@ -119,33 +131,37 @@ export const totalPrice = (moviePriceFor:(r:Rental) => number):(rentals:Rental[]
   return (rentals) => rentals.map(r=>moviePriceFor(r)).reduce((x,y)=>x+y);
 }
 ```
-Curry only partially applies the function and return a configured function.
 
-## Software Modularization
-The total price calculation function is exported from the pricing module because they are used by the module responsible to print the receipt in html and by the module responsible to print the receipt in plain text.
+Currying allowed me to partially apply the function and return a configured function, making composition even more
+powerful.
 
-This means that I have defined the public interface between the modules (usin), which among other things can help to test the various modules individually.
+## Modularization of Software
 
+To maintain clean and modular code, I exported the total price calculation function from the pricing module. This
+function was used by modules responsible for printing receipts in HTML and plain text formats.
+
+By doing so, I defined a clear public interface between the modules. I also had the flexibility to mock this function to
+facilitate testing of the printing modules (HTML and plain text).
 
 ![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dv1kpxtmcevjwufdqvv2.jpg)
 
-## Considerations
-The building blocks are the leaves of our software that can be composed to have more complex functions.
-With functional programming, You are dealing with Functions as the basic building block. Each function can be thought of as a lego Bricks
+## Final Thoughts
 
-A pure function is by definition isolated. Unlike Encapsulation where an Object is trying to hide things from you, a pure function can not do anything It did not declare in its interface (or signature). You could say that a Pure function is "honest".
+In functional programming, functions are the fundamental building blocks. Each function can be thought of as a Lego
+brick, and pure functions are inherently isolated. Unlike encapsulation, where an object tries to hide information, pure
+functions can only do what they declare in their interface or signature, making them "honest."
 
-This causes a paradigm shift because You need to think of solving problems by breaking them down into these small isolated functions and then re-assembling them at your application entry point.
-This might seem counter-intuitive at first but then when you open you mind to the possibilities, It fundamentally changes how you think about building software.
-
-Originally published at [https://sabatinim.github.io/] (https://sabatinim.github.io/) on August 16, 2020.
+This paradigm shift encourages problem-solving by breaking them down into small, isolated functions and then
+reassembling them at the application's entry point. While this approach may seem counterintuitive initially, it
+fundamentally changes how you think about building software.
 
 ## Next
-[Second round](https://dev.to/sabatinim/building-blocks-and-composition-2nd-round-c1i)
+
+If you'd like to explore this topic further, check out
+the [second round](https://dev.to/sabatinim/building-blocks-and-composition-2nd-round-c1i) of my journey.
 
 ## References
+
+Originally published at [https://sabatinim.github.io/] (https://sabatinim.github.io/) on August 16, 2020.
 [Github code](https://www.github.com/sabatinim/video-store-kata/tree/master/typescript)
-[Scott Wlashin the power of composition](https://www.slideshare.net/mobile/ScottWlaschin/the-power-of-composition) 
-
-
-
+[Scott Wlashin the power of composition](https://www.slideshare.net/mobile/ScottWlaschin/the-power-of-composition)
