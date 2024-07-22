@@ -1,3 +1,8 @@
+---
+layout: custom
+title: "My First Year as a Senior Software Architect in a Startup: Embracing the Journey"
+date: 2023-09-06
+---
 # Table of contents
 * [Let's Start](#1)
 * [Why Choose a Startup?](#2)

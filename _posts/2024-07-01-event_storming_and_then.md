@@ -1,3 +1,8 @@
+---
+layout: custom
+title: "Event storming, and then what?"
+date: 2024-07-01
+---
 ### References
 - [Github Repo](https://github.com/sabatinim/mars-rover-ddd)
 - [Event Storming](https://www.eventstorming.com/)
