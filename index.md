@@ -5,7 +5,7 @@ title: Marco Sabatini, Software Crafter
 
 ## Overview
 Hi folks.
-My name is Marco Sabatini I'm a Software craftsman, clean code disciple, tdd lover, xp-er, quantified self geek, more than 10 years on the field and still love it.
+My name is [Marco Sabatini](https://sabatinim.github.io/assets/docs/cv.pdf) I'm a Software craftsman, clean code disciple, tdd lover, xp-er, quantified self geek, more than 10 years on the field and still love it.
 This is my chance to share something with you!
 
 ## Blog
