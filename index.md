@@ -4,8 +4,6 @@
 
 ---
 
-# Head of Data Platform Engineering | Data Platform Architect
-
 Engineering leader with **15+ years of experience building scalable data platforms, distributed systems, and cloud infrastructure** across fintech, cybersecurity, and travel-tech environments.
 
 Proven track record of **leading engineering teams, designing modern data architectures, and delivering production-grade data platforms that support analytics, risk modelling, and data-driven decision making**.
@@ -26,9 +24,8 @@ Previously part of **lastminute.com’s data platform initiatives**, contributin
 - Data quality and reliability
 
 ## Cloud Data Platforms
-- AWS
-- Azure
-- Google Cloud (BigQuery, Dataproc)
+- AWS & Azure storage
+- AWS & Azure RDS
 - Kubernetes
 - Infrastructure as Code (Terraform)
 
@@ -45,9 +42,6 @@ Previously part of **lastminute.com’s data platform initiatives**, contributin
 - Cross-team technical coordination
 - Stakeholder alignment with product and business teams
 - Mentoring and developing engineers
-
-## Programming
-Python • Scala • Kotlin • Java • Bash
 
 ---
 
@@ -67,7 +61,7 @@ Lead a **15-engineer team responsible for migrating financial risk models to a c
 - Improving scalability and reliability of **data processing pipelines used by quantitative and risk teams**
 - Coaching engineers and driving engineering best practices across the team
 
-**Tech:** Azure, Kubernetes, Databricks, Python, Terraform, Docker, Oracle
+**Tech:** Azure storage, Kubernetes, Databricks, Python, Terraform, Docker, Oracle DB, Gitlab
 
 ---
 
