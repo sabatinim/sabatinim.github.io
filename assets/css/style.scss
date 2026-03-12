@@ -1,0 +1,4 @@
+---
+---
+/* Hide any download link fallback if theme config does not cover it */
+a[href*="download"], .download, .downloads, .download-link { display: none !important; }

@@ -1,5 +1,7 @@
 title: Marco Sabatini's blog
 description: Software crafter.
-show_downloads: true
+github:
+  is_project_page: false
+show_downloads: false # theme setting, hide download links if supported
 google_analytics:
 theme: jekyll-theme-hacker
