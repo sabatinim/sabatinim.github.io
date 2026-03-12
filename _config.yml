@@ -1,12 +1,5 @@
 title: Marco Sabatini's blog
 description: Software crafter.
-show_downloads: false
-github:
-  is_project_page: false
+show_downloads: true
 google_analytics:
-remote_theme: pages-themes/hacker@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have onepermalink: /blog/:year/:month/:day/:title
-twitter:
-  is_enabled: true
-  url: https://twitter.com/marc_sab
+theme: jekyll-theme-hacker
