@@ -4,8 +4,9 @@ show_downloads: false
 github:
   is_project_page: false
 google_analytics:
-remote_theme: "jekyll/minima@1e8a445"
-permalink: /blog/:year/:month/:day/:title
+remote_theme: pages-themes/hacker@v0.2.0
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have onepermalink: /blog/:year/:month/:day/:title
 twitter:
   is_enabled: true
   url: https://twitter.com/marc_sab
