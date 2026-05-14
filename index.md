@@ -1,6 +1,4 @@
-✉ [Contact](sabatini.m@gmail.com)  
-
-[GitHub](https://github.com/sabatinim) | [Blog](https://dev.to/maverick198) | [LinkedIn](https://www.linkedin.com/in/sabatinimarco/)  
+Email: [Contact](sabatini.m@gmail.com) | [GitHub](https://github.com/sabatinim) | [Blog](https://dev.to/maverick198) | [LinkedIn](https://www.linkedin.com/in/sabatinimarco/) | [Download CV](cv.pdf)
 
 ---
 
