@@ -1,8 +1,12 @@
-[Contact](mailto:sabatini.m@gmail.com) | [GitHub](https://github.com/sabatinim) | [Blog](https://dev.to/maverick198) | [LinkedIn](https://www.linkedin.com/in/sabatinimarco/) | [View CV](cv.html) | [Download CV](cv.pdf)
+# Marco Sabatini
+
+Email: [Contact](mailto:sabatini.m@gmail.com) | [GitHub](https://github.com/sabatinim) | [Blog](https://dev.to/maverick198) | [LinkedIn](https://www.linkedin.com/in/sabatinimarco/)
 
 ---
 
-Engineering with **15+ years of experience building scalable data platforms, distributed systems, and cloud infrastructure** across fintech, cybersecurity, and travel-tech environments.
+---
+
+Engineering leader with **15+ years of experience building scalable data platforms, distributed systems, and cloud infrastructure** across fintech, cybersecurity, and travel-tech environments.
 
 Proven track record of **leading engineering teams, designing modern data architectures, and delivering production-grade data platforms that support analytics, risk modelling, and data-driven decision making**.
 
@@ -45,7 +49,7 @@ Previously part of **lastminute.com’s data platform initiatives**, contributin
 
 # Professional Experience
 
-## Associate Director – Software Engineering  
+## Associate Director – Software Engineering
 **UBS – Lugano, Switzerland**  
 Nov 2024 – Present
 
@@ -63,7 +67,7 @@ Lead a **15-engineer team responsible for migrating financial risk models to a c
 
 ---
 
-## Senior Software Architect  
+## Senior Software Architect
 **Denexus – Lugano, Switzerland**  
 May 2022 – Nov 2024
 
@@ -80,7 +84,7 @@ Architected and developed a **cyber risk intelligence platform** used to aggrega
 
 ---
 
-## Senior Software Engineer  
+## Senior Software Engineer
 **Nozomi Networks – Mendrisio, Switzerland**  
 Nov 2020 – May 2022
 
@@ -97,7 +101,7 @@ Developed **data services supporting industrial cybersecurity analytics platform
 
 ---
 
-## Tech Lead  
+## Tech Lead
 **lastminute.com – Chiasso, Switzerland**  
 Nov 2018 – Nov 2020
 
@@ -114,7 +118,7 @@ Technical leader within the travel platform engineering organization.
 
 ---
 
-## Senior Agile Software Engineer  
+## Senior Agile Software Engineer
 **lastminute.com – Chiasso, Switzerland**  
 Nov 2015 – Nov 2018
 
@@ -133,7 +137,7 @@ Engineer in the team responsible for **building the Big Data pricing analytics p
 
 ## Earlier Experience
 
-### Solution Architect Consultant  
+### Solution Architect Consultant
 **Wedjaa – Rome, Italy**  
 2011 – 2015
 
@@ -146,7 +150,7 @@ Activities included:
 
 ---
 
-### System Analyst  
+### System Analyst
 **IDS – Rome, Italy**  
 2009 – 2011
 
@@ -154,7 +158,7 @@ Developed software systems for the **aerospace aeronautical navigation domain**,
 
 ---
 
-### Software Developer  
+### Software Developer
 **IBM – Rome, Italy**  
 2008 – 2009
 
@@ -174,8 +178,8 @@ Final Grade: 107/110
 
 # Professional Training
 
-- Advanced Test Driven Development — J.B. Rainsberger  
-- Surviving Legacy Code — J.B. Rainsberger  
-- Applied Functional Programming — Avanscoperta  
-- Machine Learning & Predictive Analytics — Simone Scardapane  
+- Advanced Test Driven Development — J.B. Rainsberger
+- Surviving Legacy Code — J.B. Rainsberger
+- Applied Functional Programming — Avanscoperta
+- Machine Learning & Predictive Analytics — Simone Scardapane
 - Secure Coding — Nozomi Networks
