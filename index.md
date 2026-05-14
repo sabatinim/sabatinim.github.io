@@ -1,4 +1,4 @@
-[Contact](mailto:sabatini.m@gmail.com) | [GitHub](https://github.com/sabatinim) | [Blog](https://dev.to/maverick198) | [LinkedIn](https://www.linkedin.com/in/sabatinimarco/) | [View CV](cv.html) | [Download CV](cv.pdf)
+[Contact](mailto:sabatini.m@gmail.com) | [GitHub](https://github.com/sabatinim) | [Blog](https://dev.to/maverick198) | [LinkedIn](https://www.linkedin.com/in/sabatinimarco/) | <a href="cv.html" target="_blank">View CV</a> | <a href="cv.pdf" download="Marco_Sabatini_CV.pdf" target="_blank">Download CV</a>
 
 ---
 
