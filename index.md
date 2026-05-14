@@ -2,180 +2,165 @@
 
 ---
 
-Engineering with **15+ years of experience building scalable data platforms, distributed systems, and cloud infrastructure** across fintech, cybersecurity, and travel-tech environments.
+# Marco Sabatini
 
-Proven track record of **leading engineering teams, designing modern data architectures, and delivering production-grade data platforms that support analytics, risk modelling, and data-driven decision making**.
+## Professional Summary
 
-Strong background in **data pipelines, big data ecosystems, cloud-native infrastructure, and platform engineering**. Passionate about **mentoring engineers, building high-performing teams, and aligning technical platforms with business strategy**.
+Engineering leader with 15+ years of experience in building scalable data platforms, distributed systems, and cloud infrastructure across fintech, cybersecurity, and travel-tech industries. Proven track record in leading engineering teams, designing modern data architectures, and delivering production-grade data platforms for analytics, risk modeling, and data-driven decision making. Strong expertise in data pipelines, big data ecosystems, cloud-native infrastructure, and platform engineering. Passionate about mentoring engineers, building high-performing teams, and aligning technical platforms with business strategy.
 
-Previously part of **lastminute.com’s data platform initiatives**, contributing to the **Big Data pricing analytics platform used to support travel product optimization**.
+## Core Competencies
 
----
-
-# Core Competencies
-
-## Data Platform Architecture
+### Data Platform Architecture
 - Data Lakehouse architectures
 - Data ingestion and processing pipelines
 - Streaming and event-driven systems
 - Data lifecycle management
 - Data quality and reliability
 
-## Cloud Data Platforms
-- AWS & Azure storage
-- AWS & Azure RDS
-- Kubernetes
-- Infrastructure as Code (Terraform)
+### Cloud Data Platforms
+- AWS & Azure storage solutions
+- AWS & Azure RDS databases
+- Kubernetes container orchestration
+- Infrastructure as Code with Terraform
 
-## Data Engineering & Technologies
-- Spark
-- Databricks
-- SQL / NoSQL databases
-- Elasticsearch / SOLR
-- Data orchestration and microservices
+### Data Engineering & Technologies
+- Apache Spark for big data processing
+- Databricks for data analytics
+- SQL and NoSQL databases (Oracle, MySQL, PostgreSQL)
+- Elasticsearch and SOLR for search
+- Data orchestration and microservices architecture
+- Programming: Python, Java, Ruby, TypeScript, Bash
 
-## Leadership & Strategy
-- Engineering team leadership
-- Platform strategy and architecture
+### Leadership & Strategy
+- Engineering team leadership and management
+- Platform strategy and architecture design
 - Cross-team technical coordination
 - Stakeholder alignment with product and business teams
-- Mentoring and developing engineers
+- Mentoring and developing engineering talent
 
 ---
 
 # Professional Experience
 
-## Associate Director – Software Engineering  
+## Associate Director – Software Engineering
 **UBS – Lugano, Switzerland**  
-Nov 2024 – Present
+November 2024 – Present
 
-Lead a **15-engineer team responsible for migrating financial risk models to a cloud-native data platform** supporting enterprise analytics and risk management.
+Lead a team of 15 engineers responsible for migrating financial risk models to cloud-native data platforms supporting enterprise analytics and risk management.
 
-### Key contributions
+### Key Achievements
+- Led migration of US mortgages probability of default and loss given default risk modeling workloads from on-premises to Azure cloud platforms, managing a portfolio of 100,000 mortgages across the entire US
+- Designed scalable architecture using Azure Kubernetes, Databricks, and cloud storage
+- Implemented Infrastructure as Code with Terraform for standardized deployments
+- Improved scalability and reliability of data processing pipelines for quantitative team of 5 people
+- Coached four engineers and promoted engineering best practices across the team
 
-- Leading the **migration of risk modelling workloads from on-prem infrastructure to Azure-based cloud data platforms**
-- Designing scalable platform architecture using **Azure Kubernetes, Databricks, and cloud storage**
-- Implementing **Infrastructure as Code with Terraform** to standardize environments and deployments
-- Improving scalability and reliability of **data processing pipelines used by quantitative and risk teams**
-- Coaching engineers and driving engineering best practices across the team
 
-**Tech:** Azure storage, Kubernetes, Databricks, Python, Terraform, Docker, Oracle DB, Gitlab
+**Technologies:** Azure Storage, Kubernetes, Databricks, Python, Terraform, Docker, Oracle Database, GitLab
 
----
-
-## Senior Software Architect  
+## Senior Software Architect
 **Denexus – Lugano, Switzerland**  
-May 2022 – Nov 2024
+May 2022 – November 2024
 
-Architected and developed a **cyber risk intelligence platform** used to aggregate and enrich large-scale network asset and vulnerability data.
+Architected and developed cyber risk intelligence platform for aggregating and enriching large-scale network asset and vulnerability data.
 
-### Key contributions
+### Key Achievements
+- Designed cloud-native platform for cybersecurity data ingestion, enrichment, and indexing
+- Built scalable data pipelines using Python and Databricks for intelligence data processing
+- Implemented microservices in Python using Fast API for data discovery and search across industrial networks
+- The platform calculates risk for approximately 20 sensitive industrial plants in the USA and Europe, involving ingestion of terabytes of data and optimized model execution in minutes
+- Collaborated with leadership on platform architecture and roadmap development
 
-- Designed a **cloud-native platform for ingesting, enriching, and indexing cybersecurity intelligence data**
-- Built scalable **data ingestion and enrichment pipelines**
-- Implemented microservices enabling **data discovery and search across industrial network assets**
-- Collaborated with product leadership to define platform architecture and roadmap
 
-**Tech:** AWS (ECS, EC2, S3), Databricks, Python, Terraform, Docker, Postgres, Splunk
+**Technologies:** AWS (ECS, EC2, S3), Databricks, Python, FastAPI, Terraform, Docker, PostgreSQL, Splunk
 
----
-
-## Senior Software Engineer  
+## Senior Software Engineer
 **Nozomi Networks – Mendrisio, Switzerland**  
-Nov 2020 – May 2022
+November 2020 – May 2022
 
-Developed **data services supporting industrial cybersecurity analytics platforms**.
+Developed data services for industrial cybersecurity analytics platforms.
 
-### Key contributions
+### Key Achievements
+- Built systems for collecting, processing, and enriching vulnerability intelligence data
+- Led security research engineering team for vulnerability workflows
+- Collaborated with SRE teams on AWS infrastructure using Terraform
+- Improved data reliability and operational monitoring
 
-- Built systems for **collecting, processing, and enriching vulnerability intelligence and industrial protocol data**
-- Led a **security research engineering team** responsible for vulnerability intelligence workflows
-- Collaborated with SRE teams to implement **AWS infrastructure using Terraform**
-- Contributed to improving **data reliability and operational monitoring**
+**Technologies:** AWS, Terraform, Elasticsearch, SOLR, Docker, Ruby, JavaScript, MySQL
 
-**Tech:** AWS, Terraform, Elasticsearch, SOLR, Docker, Ruby, Javascript, MySQL
-
----
-
-## Tech Lead  
+## Tech Lead
 **lastminute.com – Chiasso, Switzerland**  
-Nov 2018 – Nov 2020
+November 2018 – November 2020
 
-Technical leader within the travel platform engineering organization.
+Technical leader in travel platform engineering organization.
 
-### Key contributions
+### Key Achievements
+- Led backend teams developing high-scale travel microservices
+- Coordinated cross-team optimization using production KPIs
+- Supported migration to cloud-based infrastructure
+- Mentored engineers and promoted best practices
 
-- Led backend teams working on **high-scale travel microservices**
-- Coordinated cross-team work to **optimize platform performance using production KPIs**
-- Supported the migration of legacy services to **cloud-based infrastructure**
-- Mentored engineers and promoted engineering best practices
+**Technologies:** Kotlin, Java, MySQL
 
-**Tech:** Kotlin, Java, MySQL
-
----
-
-## Senior Agile Software Engineer  
+## Senior Agile Software Engineer
 **lastminute.com – Chiasso, Switzerland**  
-Nov 2015 – Nov 2018
+November 2015 – November 2018
 
-Engineer in the team responsible for **building the Big Data pricing analytics platform**.
+Engineer on Big Data pricing analytics platform team.
 
-### Key contributions
+### Key Achievements
+- Designed and developed data pipelines for flight pricing analytics
+- Built distributed processing workflows using Spark on Google Cloud
+- Contributed to migration from monolithic to microservices architecture
+- Supported data-driven pricing optimization with product teams
 
-- Designed and developed **data pipelines for flight pricing analytics**
-- Built distributed processing workflows using **Spark on Google Cloud**
-- Contributed to the migration from **monolithic systems to microservices architecture**
-- Collaborated with product teams to support data-driven pricing optimization
-
-**Tech:** Scala, Spark, BigQuery, Dataproc, Kotlin, Java
-
----
+**Technologies:** Scala, Apache Spark, Google BigQuery, Dataproc, Kotlin, Java
 
 ## Earlier Experience
 
-### Solution Architect Consultant  
+### Solution Architect Consultant
 **Wedjaa – Rome, Italy**  
 2011 – 2015
 
-Technology consulting and custom software development across multiple enterprise customers.
+Technology consulting and custom software development for enterprise customers.
 
-Activities included:
-- Architecture and technology assessments
-- Enterprise integrations
-- Technical training on Java performance and Golang
+- Conducted architecture assessments and technology evaluations
+- Developed enterprise integrations and solutions
+- Provided technical training on Java performance and Golang
 
----
-
-### System Analyst  
+### System Analyst
 **IDS – Rome, Italy**  
 2009 – 2011
 
-Developed software systems for the **aerospace aeronautical navigation domain**, supporting flight procedures and obstacle management.
+Developed software systems for aerospace navigation domain.
 
----
+- Supported flight procedures and obstacle management systems
+- Analyzed requirements and designed system architectures
 
-### Software Developer  
+### Software Developer
 **IBM – Rome, Italy**  
 2008 – 2009
 
-Developed search technology for the publishing market using Apache Lucene.
+Developed search technology for publishing market using Apache Lucene.
+
+- Implemented search functionality and indexing solutions
 
 ---
 
 # Education
 
-**Master Degree in Computer Science**  
-University of Rome Tor Vergata  
+**Master of Science in Computer Science**  
+University of Rome Tor Vergata, Italy  
 
-Thesis: *Integration of Legacy Systems Using SOA Principles*  
-Final Grade: 107/110
+Thesis: Integration of Legacy Systems Using SOA Principles  
+Grade: 107/110
 
 ---
 
-# Professional Training
+# Professional Development
 
-- Advanced Test Driven Development — J.B. Rainsberger  
-- Surviving Legacy Code — J.B. Rainsberger  
-- Applied Functional Programming — Avanscoperta  
-- Machine Learning & Predictive Analytics — Simone Scardapane  
-- Secure Coding — Nozomi Networks
+- Advanced Test Driven Development – J.B. Rainsberger
+- Surviving Legacy Code – J.B. Rainsberger
+- Applied Functional Programming – Avanscoperta
+- Machine Learning & Predictive Analytics – Simone Scardapane
+- Secure Coding – Nozomi Networks
