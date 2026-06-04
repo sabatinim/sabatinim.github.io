@@ -78,43 +78,16 @@ Architected and developed cyber risk intelligence platform for aggregating and e
 **Nozomi Networks – Mendrisio, Switzerland**  
 November 2020 – May 2022
 
-Developed data services for industrial cybersecurity analytics platforms.
+ Contributed to the development of an asset-indexing and search platform for industrial sites. Implemented Ruby APIs for search and Elasticsearch integration, and designed index schemas to support high-throughput queries (hundreds of searches per second). Developed Terraform scripts for provisioning automated test and production environments. The platform is in production for approximately 100 customers.
 
-### Key Achievements
-- Built systems for collecting, processing, and enriching vulnerability intelligence data
-- Led security research engineering team for vulnerability workflows
-- Collaborated with SRE teams on AWS infrastructure using Terraform
-- Improved data reliability and operational monitoring
-
-**Technologies:** AWS, Terraform, Elasticsearch, SOLR, Docker, Ruby, JavaScript, MySQL
-
-## Tech Lead
+## Senior Software Engineer
 **lastminute.com – Chiasso, Switzerland**  
-November 2018 – November 2020
+November 2015 – November 2020
 
-Technical leader in travel platform engineering organization.
+Worked across three core areas: flight pricing, talent acquisition & training, and hotel search architecture. Contributed to the flight pricing engine using Kotlin — responsible for requirements definition and implementing production features for a high-throughput pricing system capable of searching and marking up thousands of fares per second across multiple carriers. Owned production monitoring, incident response, and maintenance for critical services.
 
-### Key Achievements
-- Led backend teams developing high-scale travel microservices
-- Coordinated cross-team optimization using production KPIs
-- Supported migration to cloud-based infrastructure
-- Mentored engineers and promoted best practices
+Led technical recruiting and onboarding activities, running a two-week developer bootcamp focused on Test-Driven Development (TDD), incremental Agile delivery, code quality, and release practices. Served as area architect for hotel search, managing three teams: defined roadmap and delivery plans, supervised engineering through pairing and code reviews, and provided continuous training and mentorship to improve performance and delivery quality.
 
-**Technologies:** Kotlin, Java, MySQL
-
-## Senior Agile Software Engineer
-**lastminute.com – Chiasso, Switzerland**  
-November 2015 – November 2018
-
-Engineer on Big Data pricing analytics platform team.
-
-### Key Achievements
-- Designed and developed data pipelines for flight pricing analytics
-- Built distributed processing workflows using Spark on Google Cloud in Scala programming language.
-- Contributed to migration from monolithic to microservices architecture. Refactoring and Redesign Java codebase.
-- Supported data-driven pricing optimization with product teams
-
-**Technologies:** Scala, Apache Spark, Google BigQuery, Dataproc, Kotlin, Java
 
 ## Earlier Experience
 
