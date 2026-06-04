@@ -110,8 +110,8 @@ Engineer on Big Data pricing analytics platform team.
 
 ### Key Achievements
 - Designed and developed data pipelines for flight pricing analytics
-- Built distributed processing workflows using Spark on Google Cloud
-- Contributed to migration from monolithic to microservices architecture
+- Built distributed processing workflows using Spark on Google Cloud in Scala programming language.
+- Contributed to migration from monolithic to microservices architecture. Refactoring and Redesign Java codebase.
 - Supported data-driven pricing optimization with product teams
 
 **Technologies:** Scala, Apache Spark, Google BigQuery, Dataproc, Kotlin, Java
@@ -122,12 +122,12 @@ Engineer on Big Data pricing analytics platform team.
 **Wedjaa – Rome, Italy**  
 2011 – 2015
 
+Worked as a consultant on multiple enterprise projects, leading client engagement, technical assessment, solution architecture, and software delivery. Responsibilities included defining architectures, developing software, and forming or shaping internal and external development teams.
 
-Technology consulting and custom software development for enterprise customers.
-
-- Conducted architecture assessments and technology evaluations
-- Developed enterprise integrations and solutions
-- Provided technical training on Java performance and Golang
+Major projects during this period included:
+- A Java-based ticketing system for an Italian cinema chain with approximately 30 locations and hundreds of screens, supporting peak holiday loads of 20,000 daily bookings.
+- An online medical reporting platform for the Lazio region, integrating Alfresco and the open-source eHealth Integration Framework (IPF) for patient data management.
+- A project reporting and accounting platform for an international telecom company, managing requirements definition and Java development with Jira integration.
 
 ### System Analyst
 **IDS – Rome, Italy**  
