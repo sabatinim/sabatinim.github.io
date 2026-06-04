@@ -122,6 +122,7 @@ Engineer on Big Data pricing analytics platform team.
 **Wedjaa – Rome, Italy**  
 2011 – 2015
 
+
 Technology consulting and custom software development for enterprise customers.
 
 - Conducted architecture assessments and technology evaluations
@@ -132,18 +133,13 @@ Technology consulting and custom software development for enterprise customers.
 **IDS – Rome, Italy**  
 2009 – 2011
 
-Developed software systems for aerospace navigation domain.
-
-- Supported flight procedures and obstacle management systems
-- Analyzed requirements and designed system architectures
+Contributed to the development of two aerospace systems for flight procedure design and obstacle management in controlled aerospace. Responsibilities included requirements gathering, feature development, and production releases. Developed most of the application backend in Java, with frontend components in JavaScript and HTML. The software was deployed to production and used by approximately ten national and international aviation and airport authority organizations.
 
 ### Software Developer
 **IBM – Rome, Italy**  
 2008 – 2009
 
-Developed search technology for publishing market using Apache Lucene.
-
-- Implemented search functionality and indexing solutions
+Developed a Java-based search engine using *Apache Lucene* for information retrieval. As a junior software engineer working alongside a senior engineer, I helped define and implement features to replace a proprietary search engine for a publishing lifecycle system serving international magazines. The solution indexed millions of documents per client in both batch and real-time modes, using Java 1.4 version with socket-based integration to the publishing platform. The product went into production for around thirty customers.
 
 ---
 
